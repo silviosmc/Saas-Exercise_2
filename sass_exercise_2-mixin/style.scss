@@ -1,0 +1,64 @@
+$primary-color: red;
+$secondary-color: blue;
+$tertiary-color: green;
+$font-size: 1rem;
+
+@mixin box ($color, $border-color, $font-size) {
+    color: $color;
+    border: 1px solid $border-color;
+    font-size: $font-size;
+}
+
+
+.container {
+    border: 1px solid $primary-color;
+    text-align: center;
+    margin: 10px;
+
+    h1 {
+        color: $tertiary-color;
+        text-decoration: underline;
+        text-decoration-color: $secondary-color;
+    }
+
+    #main {
+        display: flex;
+        justify-content: flex-start;
+        margin: 20px;
+
+        article {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            &:nth-child(odd) {
+                @include box($secondary-color, $tertiary-color, $font-size);
+            }
+
+            &:nth-child(even) {
+                @include box($primary-color, $tertiary-color, $font-size);
+            }
+
+            p {
+                padding: 10px;
+            }
+        }
+    }
+
+    #footer {
+        display: flex;
+        justify-content: flex-start;
+        margin: 20px;
+
+        article {
+            @include box($tertiary-color, $secondary-color, 2rem);
+        }
+    }
+}
+
+
+
+
+
+
+
